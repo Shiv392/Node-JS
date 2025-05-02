@@ -1,0 +1,3 @@
+Name : 'Shiv Soni',
+age : 25,
+Skills : ['Angular','React','Node','MYSQL']
