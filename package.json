@@ -1,0 +1,13 @@
+{
+  "name": "node-js",
+  "version": "1.0.0",
+  "description": "This repository will help to learn node js much faster then never before. \r This repository have most important and foundational concepts like Node JS Module,\r File System Module, Streams, Promise, Web workers and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shivsoni",
+  "license": "ISC",
+  "type": "commonjs"
+}
+
