@@ -4,7 +4,7 @@
   "description": "This repository will help to learn node js much faster then never before. \r This repository have most important and foundational concepts like Node JS Module,\r File System Module, Streams, Promise, Web workers and more.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "author": "shivsoni",
   "license": "ISC",
@@ -12,6 +12,7 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
