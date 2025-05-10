@@ -1,18 +1,20 @@
 
 const crypto = require('crypto');
 
-const decryptData=(encrypted)=>{
-    const secretKey = "12345678901234567890123456789012";
-    const iv = "1234567890123456";
-    const decipher = crypto.createDecipheriv(
-        "aes-256-ocb",
-        Buffer.from(secretKey),
-        Buffer.from(iv)
-    );
-    let decrypted = decipher.update(encrypted,"base64","utf8");
-    decrypted+=decipher.final("utf8");
-    return JSON.parse(decrypted);
-}
+const decryptData = (encrypted) => {
+  const secretKey = "12345678901234567890123456789012"; // 32 bytes
+  const iv = "1234567890123456"; // 16 bytes
+
+  const decipher = crypto.createDecipheriv(
+    "aes-256-cbc",
+    Buffer.from(secretKey),
+    Buffer.from(iv)
+  );
+
+  let decrypted = decipher.update(encrypted, "base64", "utf8");
+  decrypted += decipher.final("utf8");
+  return JSON.parse(decrypted);
+};
 
 const userlogin=(req,res)=>{
 try{
@@ -21,7 +23,7 @@ const decrypted = decryptData(encrypted);
 console.log('decrypted ---------->',decrypted);
 
 return (
-    res.json(`<h1>shivsoni</h1>`)
+    res.status(200).json({success:true,message:'Login Successfull',user:decryptData})
 )
 }
 catch(err){
