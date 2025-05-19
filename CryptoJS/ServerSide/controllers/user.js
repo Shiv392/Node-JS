@@ -25,6 +25,13 @@ const { data, iv } = req.body; //get data and iv from the client side ----------
 const decrypted = decryptData(data,iv);
 console.log('decrypted ---------->',decrypted);
 
+const now = Date.now();
+const MAX_DELAY = 15 * 1000; // 15 seconds
+
+if (!decrypted.timestamp || Math.abs(now - decrypted.timestamp) > MAX_DELAY) {
+      return res.status(403).json({ success: false, message: 'Request expired' });
+}
+
 return (
     res.status(200).json({success:true,message:'Login Successfull',user:decryptData})
 )

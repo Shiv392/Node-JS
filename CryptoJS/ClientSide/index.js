@@ -32,7 +32,7 @@ const formSubmit=(event)=>{
 
     console.log('not encrypted -------->',{name,email,password});
 
-    const payload={name,email,password};
+    const payload={name,email,password,timestamp : Date.now()};
     const {encryptedData,iv}=cryptoEncryption(payload);
 
     console.log('user details---------->',encryptedData);
